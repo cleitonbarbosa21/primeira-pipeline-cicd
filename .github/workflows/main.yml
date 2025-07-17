@@ -23,4 +23,22 @@ jobs:
         tags: | 
           cleitonbarbosa21/github-actions-pipeline:v${{ github.run_number }} 
           cleitonbarbosa21/github-actions-pipeline:latest 
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI]
+    steps: 
+    - name: Obtendo o código
+      uses: actions/checkout@v4.2.2
+    - name: Configuração de contexto do Kubernetes
+      uses: phamquyhai/kubernetes-action@master
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.K8S_CONFIG }}
+    - name: Execução do Manifesto
+      uses: phamquyhai/kubernetes-action@master
+      with:
+        manifests: |
+          ./k8s/deployment.yaml
+        images: |
+          cleitonbarbosa21/github-actions-pipeline:v${{ github.run_number }}
   
