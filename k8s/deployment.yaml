@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: fabricioveronez/primeira-pipeline-cicd
+        image: cleitonbarbosa21/github-actions-pipeline
         ports:
         - containerPort: 5000
 --- 
