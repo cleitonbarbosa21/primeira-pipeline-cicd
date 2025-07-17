@@ -21,6 +21,6 @@ jobs:
         file: ./src/Dockerfile
         push: true
         tags: | 
-          cleitonbarbosa/github-actions-pipeline:v${{ github.run_number }} 
-          cleitonbarbosa/github-actions-pipeline:latest 
+          cleitonbarbosa21/github-actions-pipeline:v${{ github.run_number }} 
+          cleitonbarbosa21/github-actions-pipeline:latest 
   
